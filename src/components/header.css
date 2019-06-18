@@ -1,0 +1,23 @@
+
+.header {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 60px;
+    z-index: 99;
+    background: #be6666;
+}
+.header img {
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    top: 50%;
+    border-radius: 100%;
+    margin-top: 15px;
+    float: left;
+    margin-left: 20px;
+}
+
+
+
+
