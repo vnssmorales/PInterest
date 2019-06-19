@@ -20,7 +20,7 @@
 }
 
 .header img:hover {
-    background: 4px solid rgb(0, 0, 0, 0.3);
+    background: gray;
 }
 
 .searching {
@@ -32,8 +32,18 @@
     padding: 10px;
     margin-top: 10px;
     border: none;
+    background: rgba(0, 0, 0, 0);
+   
+    font-weight: bold;
 }
 
+.searchBox {
+    top: 20px;
+    left: 100px;
+    right: 20px;
+    border-radius: 4px;
+    background: rgb(253, 245, 245)
+}
 
 
 
