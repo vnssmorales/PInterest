@@ -15,9 +15,13 @@ class Header extends Component {
                 </a>
 
                 <div className="searchBox">
-                <input type="text" value="" placeholder="search" className="searching"></input>
-                <button className="send">Inicio</button>
- 
+                    <span class="fa fa-search" id="search" ></span>
+                    <input type="text" value="" placeholder="Buscar" className="searching"></input>
+                    <button className="send">Inicio</button>
+                    <button className="send">Siguiendo</button>
+                    <button className="send">Vanessa</button>
+                    <span class="fa fa-comment-dots"></span>
+                    <span class="fa fa-bell"></span>
 
                 </div>
 
