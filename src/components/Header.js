@@ -16,6 +16,10 @@ class Header extends Component {
         this.query = '';
         this.queryValue = this.queryValue.bind(this);
         this.searchImg = this.searchImg.bind(this);
+
+        this.state = {
+            images: []
+        }
     }
 
     searchImg(){
@@ -24,11 +28,20 @@ class Header extends Component {
             return response.json()
         }).then(jsonResponse =>{
             console.log(jsonResponse);
+            this.setState({
+                images: jsonResponse.results
+            })
         })
     }
 
     queryValue(e){
         this.query = e.target.value;
+    }
+
+    images(){
+        this.state.images.map(image=>{
+            return <img src={image.urls.thumb} />
+        })
     }
 
     render() {
@@ -44,28 +57,18 @@ class Header extends Component {
                     <InputGroupAddon addonType="prepend"><i class="fa fa-search" id="search" ></i></InputGroupAddon>
                     <Input placeholder="Buscar" onKeyPress={this.searchImg} onChange = {this.queryValue} className="searching"/>
                     </InputGroup>
-                    
                     </div>
                     <div>
                         <button className="send">Inicio</button>
-                    </div>
-                    <div>
                         <button className="seguir">Siguiendo</button>
-                    </div>
-                    <div>
                         <button className="name">Vanessa</button>
-                    </div>
-                    <div>
                         <span class="fa fa-comment-dots"></span>
-                    </div>
-                    <div>
                         <span class="fa fa-bell"></span>
-                    </div>
-                    <div>
                         <span class="fa fa-ellipsis-h"></span>
                     </div>
                 </div>
 
+            <div>{this.images()}</div>
             </div>
         )
     }
