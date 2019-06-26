@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../img/logo.png';
 import '../components/header.css';
+import '../components/images.css';
 
 const imgLogo = {
     baseurl: "http://localhost:3000"
@@ -18,6 +19,8 @@ class Navigation extends Component {
 
         this.state = {
             images: [],
+            imgsPerPage: 20,
+            loading: false
         }
     }
 
@@ -39,21 +42,22 @@ class Navigation extends Component {
 
     images() {
         return this.state.images.map(image => {
-            return <img src={image.urls.thumb} />
+            return <img src={image.urls.thumb} key={image.id}/>
         })
     }
 
     render() {
+        
         return (
             <div className="container">
                 <div className="header">
-                    <a href={imgLogo.baseurl} className="logo">
-                        <img src={logo} className="logoImg" />
+                    <a href={imgLogo.baseurl} className="logo" >
+                        <img src={logo} className="logoImg" alt="pinterest" />
                     </a>
 
+                    <span> <i className="fa fa-search" id="search" ></i></span>
+                    <input placeholder="Buscar" type="text" onKeyDown={this.searchImg} onChange={this.queryValue} className="searching"></input>
                     <div className="searchBox">
-                        <span> <i className="fa fa-search" id="search" ></i></span>
-                        <input placeholder="Buscar" type="text" onKeyPress={this.searchImg} onChange={this.queryValue} className="searching"></input>
                         <span className="send">Inicio</span>
                         <span className="seguir">Siguiendo</span>
                         <span className="name">Vanessa</span>
@@ -68,7 +72,7 @@ class Navigation extends Component {
                 </div>
 
             </div>
-        )
+        );
     }
 }
 

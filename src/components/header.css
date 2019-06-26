@@ -27,33 +27,42 @@
 }
 
 input {
-    width: 750px;
-    margin-right: 60px;
+    width: 780px;
+    margin-top: 9px !important;
     height: 40px;
     border-radius: 0px 6px 6px 0px;
-    margin-top: 9px !important;
     float: left;
     background: #EFEFEF;
     border: none;
     outline: none;
+
 }
 
 #search {
     float: left;
     padding: 10px;
-    margin-top: 9px;
+    margin-bottom: 10px;
     background: #EFEFEF;
     margin-left: 25px;
     border-radius: 6px 0px 0px 6px;
     font-size: 20px;
+    margin-top: 9px;
+    color: gray;
 }
 
+.searchBox{
+    margin-top: 20px;
+}
 .searchBox span{
-    padding: 10px;
+    padding: 14px;
     font-weight: bold;
     display: inline;
     text-align: right;
-    align-items: center;
+    font-size: 16px;
+}
+
+.searchBox span .seguir {
+    color: #979797;
 }
 
 .searchBox i{

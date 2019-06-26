@@ -1,0 +1,17 @@
+.returnImages{
+    margin-top: 10px;
+}
+
+.newsFeed{
+    margin-top: 10px !important;
+    padding: 80px;
+    margin: 0 auto;
+}
+
+.newsFeed .item {
+    background: rgb(173, 170, 170);
+    width: 300px;
+    min-height: 200px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
