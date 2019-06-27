@@ -14,18 +14,19 @@ class Navigation extends Component {
     constructor(props) {
         super(props);
         this.query = '';
+        this.imgsPerPage = '20';
         this.queryValue = this.queryValue.bind(this);
         this.searchImg = this.searchImg.bind(this);
 
         this.state = {
             images: [],
-            imgsPerPage: 20,
+            
             loading: false
         }
     }
 
     searchImg() {
-        fetch(`${endPoint}?query=${this.query}&client_id=${accessKey}`)
+        fetch(`${endPoint}?query=${this.query}&client_id=${accessKey}&per_page=20&page${this.imgsPerPage}`)
             .then(response => {
                 return response.json()
             }).then(jsonResponse => {
@@ -84,5 +85,7 @@ class Navigation extends Component {
 
 //e.target dispara el evento y value es el valor
 
-//fetch: método del obj windows que permite hacer consultas a un servidor
+//fetch: método del obj windows que permite hacer consultas a un servidor.
+//En la primera promesa obtenemos la respuesta completa del servidor y la retornamos en formato JSON para poder acceder a los datos que posee 
+//y en la segunda promesa obtenemos nuestras imagenes y podemos manipularlas como queramos.
 export default Navigation;
