@@ -15,3 +15,12 @@
     margin-bottom: 20px;
     border-radius: 5px;
 }
+
+.infinite-scroll-component{
+    margin-top: 60px;
+}
+
+.infinite-scroll-component img{
+    border-radius: 35px;
+    padding: 10px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../img/logo.png';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import '../components/header.css';
 import '../components/images.css';
 
@@ -10,23 +11,27 @@ const imgLogo = {
 const accessKey = '5dba6e676e02ab27153aaaf2e9484eba5ccb5725b72ab57341110e157c1889e1';
 const endPoint = 'https://api.unsplash.com/search/photos'
 
+
 class Navigation extends Component {
     constructor(props) {
         super(props);
         this.query = '';
-        this.imgsPerPage = '20';
         this.queryValue = this.queryValue.bind(this);
         this.searchImg = this.searchImg.bind(this);
 
         this.state = {
             images: [],
-            
-            loading: false
+            page: 1,
+            perPage: 20,
         }
     }
 
+    componentWillMount() {
+        this.searchImg()
+    }
+
     searchImg() {
-        fetch(`${endPoint}?query=${this.query}&client_id=${accessKey}&per_page=20&page${this.imgsPerPage}`)
+        fetch(`${endPoint}?query=${this.query}&client_id=${accessKey}&per_page=20&page${this.perPage}`)
             .then(response => {
                 return response.json()
             }).then(jsonResponse => {
@@ -43,12 +48,12 @@ class Navigation extends Component {
 
     images() {
         return this.state.images.map(image => {
-            return <img src={image.urls.thumb} key={image.id}/>
+            return <img src={image.urls.thumb} key={image.id} alt="" />
         })
     }
 
     render() {
-        
+
         return (
             <div className="container">
                 <div className="header">
@@ -69,7 +74,14 @@ class Navigation extends Component {
                 </div>
 
                 <div className="returnImages">
-                    {this.images()}
+                    <InfiniteScroll
+                    dataLength={this.images.length}
+                    next={this.fetchImg}
+                    hasMore={true}
+                    loader={<h4>Cargando...</h4>}
+                    >
+                        {this.images()}
+                    </InfiniteScroll>
                 </div>
 
             </div>
