@@ -13,31 +13,31 @@ const endPoint = 'https://api.unsplash.com/search/photos'
 
 
 class Navigation extends Component {
+    componentDidMount() {
+        this.searchImg();
+    }
+
     constructor(props) {
         super(props);
-        this.query = '';
+        this.query = 'flores';
         this.queryValue = this.queryValue.bind(this);
         this.searchImg = this.searchImg.bind(this);
+        this.perPage = '20';
+        this.page = '1';
 
         this.state = {
             images: [],
-            page: 1,
-            perPage: 20,
         }
     }
 
-    componentWillMount() {
-        this.searchImg()
-    }
-
     searchImg() {
-        fetch(`${endPoint}?query=${this.query}&client_id=${accessKey}&per_page=20&page${this.perPage}`)
+        fetch(`${endPoint}?query=${this.query}&client_id=${accessKey}&per_page=${this.perPage}&page=${this.page}`)
             .then(response => {
                 return response.json()
             }).then(jsonResponse => {
                 console.log(jsonResponse);
                 this.setState({
-                    images: jsonResponse.results
+                    images: this.state.images.concat(jsonResponse.results)
                 })
             })
     }
@@ -47,8 +47,8 @@ class Navigation extends Component {
     }
 
     images() {
-        return this.state.images.map(image => {
-            return <img src={image.urls.thumb} key={image.id} alt="" />
+        return this.state.images.map((image,index) => {
+            return <img src={image.urls.thumb} key={index.id} alt="" />
         })
     }
 
@@ -73,21 +73,20 @@ class Navigation extends Component {
                     </div>
                 </div>
 
-                <div className="returnImages">
-                    <InfiniteScroll
-                    dataLength={this.images.length}
-                    next={this.fetchImg}
+                <InfiniteScroll
+                    dataLength={this.state.images.length}
+                    next={this.searchImg}
                     hasMore={true}
                     loader={<h4>Cargando...</h4>}
-                    >
-                        {this.images()}
-                    </InfiniteScroll>
-                </div>
+                >
+                    {this.images()}
+                </InfiniteScroll>
 
             </div>
         );
     }
 }
+
 
 //onChange ejecuta la funcion queryValue cada vez que se modifica el valor del input
 //para que se guarde en this.query=''
