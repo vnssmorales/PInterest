@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../img/logo.png';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Masonry from 'react-masonry-component';
 import '../components/header.css';
 import '../components/images.css';
 
@@ -27,6 +28,7 @@ class Navigation extends Component {
 
         this.state = {
             images: [],
+            totalPages: null,
         }
     }
 
@@ -37,7 +39,7 @@ class Navigation extends Component {
             }).then(jsonResponse => {
                 console.log(jsonResponse);
                 this.setState({
-                    images: this.state.images.concat(jsonResponse.results)
+                    images: jsonResponse.results
                 })
             })
     }
@@ -47,8 +49,8 @@ class Navigation extends Component {
     }
 
     images() {
-        return this.state.images.map((image,index) => {
-            return <img src={image.urls.thumb} key={index.id} alt="" />
+        return this.state.images.map((image, index) => {
+            return <img src={image.urls.thumb} key={index} alt="" />
         })
     }
 
@@ -73,14 +75,11 @@ class Navigation extends Component {
                     </div>
                 </div>
 
-                <InfiniteScroll
-                    dataLength={this.state.images.length}
-                    next={this.searchImg}
-                    hasMore={true}
-                    loader={<h4>Cargando...</h4>}
-                >
-                    {this.images()}
-                </InfiniteScroll>
+                <div className="returImages">
+                    <Masonry>
+                        {this.images()}
+                    </Masonry>
+                </div>
 
             </div>
         );

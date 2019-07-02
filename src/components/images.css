@@ -1,26 +1,24 @@
-.returnImages{
-    margin-top: 0px;
+
+.returImages{
+    margin-top: 67px;
+    width: 100%;
+    margin-left: 15px;
 }
 
-.newsFeed{
-    margin-top: 10px !important;
-    padding: 80px;
-    margin: 0 auto;
-}
-
-.newsFeed .item {
-    background: rgb(173, 170, 170);
-    width: 300px;
-    min-height: 200px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-.infinite-scroll-component{
-    margin-top: 60px;
-}
-
-.infinite-scroll-component img{
+.returImages img{
     border-radius: 35px;
     padding: 10px;
+    width: 230px;
+    background: #fff;
+    float: left;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+}
+
+.returImages img:hover {
+    color: #979797;
+    background-color: #F2F2F2;
+    border-color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
 }

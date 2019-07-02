@@ -7,6 +7,9 @@ const imgLogo = {
 };
 
 class Header extends Component {
+    constructor(props){
+        super(props);
+    }
     render() {
 
         return (

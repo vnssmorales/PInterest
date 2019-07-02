@@ -27,24 +27,25 @@
 }
 
 input {
-    width: 780px;
-    margin-top: 9px !important;
+    width: 740px;
+    margin-top: 9px;
     height: 40px;
-    border-radius: 0px 6px 6px 0px;
+    border-radius: 0px 8px 8px 0px;
     float: left;
-    background: #EFEFEF;
+    background: #e9e9e9;
     border: none;
     outline: none;
+    font-size: 15px;
 
 }
 
 #search {
     float: left;
-    padding: 10px;
+    padding: 11px;
     margin-bottom: 10px;
-    background: #EFEFEF;
+    background: #e9e9e9;
     margin-left: 25px;
-    border-radius: 6px 0px 0px 6px;
+    border-radius: 8px 0px 0px 8px;
     font-size: 20px;
     margin-top: 9px;
     color: gray;
@@ -54,11 +55,11 @@ input {
     margin-top: 20px;
 }
 .searchBox span{
-    padding: 14px;
+    padding: 16px;
     font-weight: bold;
     display: inline;
     text-align: right;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .searchBox span .seguir {
