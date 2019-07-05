@@ -62,7 +62,7 @@ input {
     font-size: 15px;
 }
 
-.searchBox span .seguir {
+.seguir, .name {
     color: #979797;
 }
 
