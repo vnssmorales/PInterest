@@ -7,32 +7,41 @@ const imgLogo = {
 };
 
 class Header extends Component {
-    constructor(props){
-        super(props);
+    state = {
+        query: "",
     }
+
+    searchImg(e) {
+        if (e.key === "Press") {
+            this.setState({
+                query: e.target.value
+            }, () => {
+                this.props.searchImg(this.state.query);
+            });
+        }
+    }
+
     render() {
 
         return (
-          
-                <div className="header">
-                    <a href={imgLogo.baseurl} className="logo" >
-                        <img src={logo} className="logoImg" alt="pinterest" />
-                    </a>
+            <header className="header">
+                <a href={imgLogo.baseurl} className="logo" >
+                    <img src={logo} className="logoImg" alt="pinterest" />
+                </a>
 
-                    <span> <i className="fa fa-search" id="search" ></i></span>
-                    <input placeholder="Buscar" type="text" onKeyDown={this.searchImg} onChange={this.queryValue} className="searching"></input>
-                    <div className="searchBox">
-                        <span className="send">Inicio</span>
-                        <span className="seguir">Siguiendo</span>
-                        <span className="name">Vanessa</span>
-                        <span> <i className="fa fa-comment-dots"></i></span>
-                        <span> <i className="fa fa-bell"></i></span>
-                        <span> <i className="fa fa-ellipsis-h"></i></span>
-                    </div>
-                    {this.props.header}
+                <span> <i className="fa fa-search" id="search" ></i></span>
+                <input placeholder="Buscar" type="text" onKeyPress={this.state.searchImg} className="searching"/>
+                <div className="searchBox">
+                    <span className="send">Inicio</span>
+                    <span className="seguir">Siguiendo</span>
+                    <span className="name">Vanessa</span>
+                    <span> <i className="fa fa-comment-dots"></i></span>
+                    <span> <i className="fa fa-bell"></i></span>
+                    <span> <i className="fa fa-ellipsis-h"></i></span>
                 </div>
+            </header>
 
-            
+
         );
     }
 }

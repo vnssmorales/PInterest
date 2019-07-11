@@ -86,12 +86,12 @@ class Navigation extends Component {
     }
 }
 
-
 //onChange ejecuta la funcion queryValue cada vez que se modifica el valor del input
 //para que se guarde en this.query=''
 
 //al trabajar con eventos es importante asegurarse que el valor del contexto no cambie
-//para eso se usa el bind.
+//para eso se usa el bind.import Images from './Images';
+
 
 //e.target dispara el evento y value es el valor
 
