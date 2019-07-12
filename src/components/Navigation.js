@@ -23,17 +23,18 @@ class Navigation extends Component {
         this.query = 'flores';
         this.queryValue = this.queryValue.bind(this);
         this.searchImg = this.searchImg.bind(this);
-        this.perPage = '20';
-        this.page = '1';
+        this.loaderImgs = this.loaderImgs.bind(this);
 
         this.state = {
+            page: 1,
             images: [],
             totalPages: null,
+            search:""
         }
     }
 
     searchImg() {
-        fetch(`${endPoint}?query=${this.query}&client_id=${accessKey}&per_page=${this.perPage}&page=${this.page}`)
+        fetch(`${endPoint}?query=${this.query}&client_id=${accessKey}&per_page=20&page=1`)
             .then(response => {
                 return response.json()
             }).then(jsonResponse => {
@@ -41,6 +42,23 @@ class Navigation extends Component {
                 this.setState({
                     images: jsonResponse.results
                 })
+            })
+    }
+
+    loaderImgs() {
+        let pageNew = this.page + 1
+        let imagesNew = this.state.images
+
+        fetch(`${endPoint}?query=${this.query}&client_id=${accessKey}&per_page=20&page=${this.page}`)
+            .then(response => {
+                return response.json()
+            }).then(jsonResponse => {
+                console.log(jsonResponse);
+                this.setState({
+                    page: pageNew,
+                    images: imagesNew.concat(jsonResponse.results)
+                })
+
             })
     }
 
@@ -76,9 +94,15 @@ class Navigation extends Component {
                 </div>
 
                 <div className="returImages">
-                    <Masonry>
-                        {this.images()}
-                    </Masonry>
+                    <InfiniteScroll
+                        dataLength={this.state.images.length}
+                        next={this.loaderImgs}
+                        hasMore={true}
+                    >
+                        <Masonry>
+                            {this.images()}
+                        </Masonry>
+                    </InfiniteScroll>
                 </div>
 
             </div>

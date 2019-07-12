@@ -15,7 +15,7 @@ class Header extends Component {
         if (e.key === "Press") {
             this.setState({
                 query: e.target.value
-            }, () => {
+            },() => {
                 this.props.searchImg(this.state.query);
             });
         }
@@ -30,7 +30,7 @@ class Header extends Component {
                 </a>
 
                 <span> <i className="fa fa-search" id="search" ></i></span>
-                <input placeholder="Buscar" type="text" onKeyPress={this.state.searchImg} className="searching"/>
+                <input placeholder="Buscar" type="text" onKeyPress={this.searchImg} className="searching"/>
                 <div className="searchBox">
                     <span className="send">Inicio</span>
                     <span className="seguir">Siguiendo</span>
