@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Pinterest-Clone/static/css/main.2e73459d.chunk.css",
+    "main.js": "/Pinterest-Clone/static/js/main.fa29f989.chunk.js",
+    "main.js.map": "/Pinterest-Clone/static/js/main.fa29f989.chunk.js.map",
+    "runtime~main.js": "/Pinterest-Clone/static/js/runtime~main.4f0434c0.js",
+    "runtime~main.js.map": "/Pinterest-Clone/static/js/runtime~main.4f0434c0.js.map",
+    "static/js/2.d5c7d8b4.chunk.js": "/Pinterest-Clone/static/js/2.d5c7d8b4.chunk.js",
+    "static/js/2.d5c7d8b4.chunk.js.map": "/Pinterest-Clone/static/js/2.d5c7d8b4.chunk.js.map",
+    "index.html": "/Pinterest-Clone/index.html",
+    "precache-manifest.a77317df21b8cbf03c5fa57a2b4a4fa4.js": "/Pinterest-Clone/precache-manifest.a77317df21b8cbf03c5fa57a2b4a4fa4.js",
+    "service-worker.js": "/Pinterest-Clone/service-worker.js",
+    "static/css/main.2e73459d.chunk.css.map": "/Pinterest-Clone/static/css/main.2e73459d.chunk.css.map",
+    "static/media/logo.png": "/Pinterest-Clone/static/media/logo.899cd5e1.png"
+  }
+}
